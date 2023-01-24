@@ -23,24 +23,24 @@
 #include <stdio.h>
 #include <string.h>
 
-#define TK_WAIT 300
-#define TK_LEFT_BRACKET 301
+#define TK_WAIT          300
+#define TK_LEFT_BRACKET  301
 #define TK_RIGHT_BRACKET 302
-#define TK_INIT 303
-#define TK_HALT 304
-#define TK_MOVE 305
-#define TK_TURN_LEFT 306
-#define TK_TURN_RIGHT 307
-#define TK_NAME 308
-#define TK_SENSOR 309
-#define TK_OP 310
-#define TK_NUM 311
-#define TK_STOP 312
+#define TK_INIT          303
+#define TK_HALT          304
+#define TK_MOVE          305
+#define TK_TURN_LEFT     306
+#define TK_TURN_RIGHT    307
+#define TK_NAME          308
+#define TK_SENSOR        309
+#define TK_OP            310
+#define TK_NUM           311
+#define TK_STOP          312
 
 /* Needed for syntax analyser*/
 #define LEXEND 0 
 
-int line = 1;
+int line  = 1;
 int token = 0;
 %}
 
@@ -150,7 +150,7 @@ void match(int tk) {
 
 int main(int argc, char** argv) {
     ++argv, --argc;  /* skip over program name */
-    if ( argc > 0 ) {
+    if (argc > 0) {
         yyin = fopen( argv[0], "r" );
     } else {
         yyin = stdin;
