@@ -78,7 +78,8 @@ void action(void);
 void error_syntax(void);
 void match(int tk);
 
-void robot(void) {
+void robot(void)
+{
     if (token == TK_NAME) {
         match(TK_NAME);
         match(TK_LEFT_BRACKET);
@@ -89,7 +90,8 @@ void robot(void) {
     }
 }
 
-void rules(void) {
+void rules(void)
+{
     if (token == TK_INIT) {
         match(TK_INIT);
         R();
@@ -98,7 +100,8 @@ void rules(void) {
     }
 }
 
-void R(void) {
+void R(void)
+{
     if ((token == TK_SENSOR) || (token == TK_HALT)) {
         rule();
         R();
@@ -107,7 +110,8 @@ void R(void) {
     }
 }
 
-void rule(void) {
+void rule(void)
+{
     if (token == TK_SENSOR) {
         match(TK_SENSOR);
         match(TK_OP);
@@ -120,7 +124,8 @@ void rule(void) {
     }
 }
 
-void action(void) {
+void action(void)
+{
     if (token == TK_MOVE) {
         match(TK_MOVE);
         match(TK_NUM);
@@ -134,13 +139,15 @@ void action(void) {
 }
 
 /* Function for error reporting*/
-void error_syntax(void) {
-    printf(" Syntax Error reading %s at line %d of input.\n",yytext, line);
+void error_syntax(void)
+{
+    printf(" Syntax Error reading %s at line %d of input.\n", yytext, line);
     exit(-1);
 }
 
 /* Function that matches the lookahead symbol (character) and reads the next. */
-void match(int tk) {
+void match(int tk)
+{
     if (token == tk) {
         token = yylex();
     } else  {
@@ -148,8 +155,10 @@ void match(int tk) {
     }
 }
 
-int main(int argc, char** argv) {
-    ++argv, --argc;  /* skip over program name */
+int main(int argc, char **argv)
+{
+    /* skip over program name */
+    ++argv, --argc;
     if (argc > 0) {
         yyin = fopen(argv[0], "r" );
     } else {
