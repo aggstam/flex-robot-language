@@ -16,3 +16,5 @@ all:
 
 clean:
 	rm -f $(OUTPUT) $(GCC_OUTPUT)
+
+.PHONU: all clean
