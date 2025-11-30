@@ -21,14 +21,14 @@ Compilation and tests execution is streamline via a Makefile.
 Three valid and one invalid test RobotLanguage code files have been provided to play with.
 
 ## Usage
-```
-% make
+```shell
+$ make
 ```
 Makefile can be configured to use a different test case set and/or files.
 
 ## Execution example
-```
-❯ make
+```shell
+$ make
 flex -o flex_robot_language.c flex_robot_language.l
 gcc flex_robot_language.c -o flex_robot_language -lfl
 ./flex_robot_language test_robot_0.rl
